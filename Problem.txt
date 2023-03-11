@@ -1,0 +1,34 @@
+=========== PROJECT IoT ==========
+
+System of monitoring, warning, temperature control, lighting, in agriculture
+Input signal: LM35 temperature sensor, photoresistor light sensor, 4 buttons for ENTER, EXIT, UP, DOWN 
+function
+Output: LCD16x2 display, 2 LEDs representing signals representing High Pressure Lamps and Heaters, 
+one horn speaker
+Function:
+    1. Read signals from sensors and always display temperature, light intensity on the top line of LCD (with light learn more formula for converting optical ADC signal back to Lumix unit and display it). to LCD)
+
+    2. There are 3 functions, 3 main menus on LCD
+        Line 0: NhietDo: AnhSang:   (Temp:  Light: )
+        Line 1:    1.Caidatnhietdo  (Set the temperature)
+        Line 2: >> 2.Caidatanhsang  (Set the light)
+        Line 3:    3.Kiemtrathietbi (Check the device)
+
+    3.  UP DOWN button to move the character >> (menu cursor) to select the feature
+        Pressing the ENTER button will activate the program that executes the function on the menu
+        Pressing EXIT button will exit to main screen while in subroutine
+
+    4.  If you are in function 1. Adjust the temperature, the LCD screen will show the setting 
+        parameters and the UP DOWN button is now responsible for increasing and decreasing. Similar 
+        to light
+        If you are in the program 3. Check the device, the UP DOWN button will be in the sunshine 
+        to turn on and off the 2 devices, the lights and the speaker respectively.
+        When in the main program, the system will automatically check the temperature and light 
+        conditions to give the following control laws:
+        - Lights will always be on if it's dark
+        - If during the day and the temperature is lower than the set temperature, turn on the heater, 
+        and reach the threshold (note the alpha error), then turn off automatically.
+        - If it is dark and the temperature is lower than the set temperature, turn on the heater and 
+        after reaching 1 minute, it will automatically turn off
+        - If the temperature is higher than the set temperature +2 for 5 minutes continuously, turn on 
+        the warning speaker
